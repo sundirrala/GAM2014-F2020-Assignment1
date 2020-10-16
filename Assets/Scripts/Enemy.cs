@@ -1,16 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Security.Cryptography;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = 10f;
 
     private Transform target;
-    private int wavepointIndex = 0;
+    private int waypointIndex = 0;
 
     void Start()
     {
@@ -30,12 +25,12 @@ public class Enemy : MonoBehaviour
 
     void GetNextWay()
     {
-        if(wavepointIndex >= Waypoints.points.Length - 1)
+        if(waypointIndex >= Waypoints.points.Length - 1)
         {
             Destroy(gameObject);
             return;
         }
-        wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
+        waypointIndex++;
+        target = Waypoints.points[waypointIndex];
     }
 }
